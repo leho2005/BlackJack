@@ -1,18 +1,26 @@
-## Getting Started
+# Blackjack
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A Blackjack game in Java Swing, made as a personal project. It's playable, but not finished yet.
 
-## Folder Structure
+You play against the dealer. Hit to draw a card, Stay to end your turn. The dealer draws until 17, aces count as 11 or 1, and going over 21 ends the round right away. Both scores are shown on screen while you play (the dealer's face-down card is only counted once it's revealed), and you can start a new round with the Play Again button.
 
-The workspace contains two folders by default, where:
+## Running it
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+You need a JDK (Java 8 or newer). Put the `cards/` and `background/` image folders next to the `.java` files, then:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+```
+javac *.java
+java App
+```
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+The card images are named like `cards/ace_of_spades.png` and `cards/10_of_hearts.png`, and there is also `cards/BACK.png`, `background/background.png` and `background/DECK.png`.
 
-## Dependency Management
+## Code
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+I split it up so the game logic doesn't depend on the drawing code. `Card`, `Deck` and `Hand` are the model (`Hand` also handles the ace value), `GamePanel` only draws the table, and `BlackJack` runs the game and the buttons. `AnimatedCard` is a card on its way from the deck to the table.
+
+## Not done yet
+
+- Betting
+- Double down and split
+- The layout is made for a maximized window and doesn't adapt to other sizes
